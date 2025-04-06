@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Hub</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+
+<header class="head"> 
+ 
+        <nav class="navbar ">
+        <div>
+        <a href="#" class="active">Home</a>
+        <a href="#service">Food_Items</a>
+        <a href="/orders">Orders</a>
+        <a href="#contact">Contact</a>
+        <a href="/login">Login</a>
+        <a href ="/signup">SignUp</a>
+        <a href ="/Logout">Logout</a>
+
+
+        </div>
+        </nav>
+        <div id="menu-bar"><i class="fas fa-bars"></i></div> 
+    </header>
+
+
+    <!---------------------------Home--------------------->
+    <section class="home" id="home" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url('/images/biryani.webp'); background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;">
+
+        <form action="/home">
+            <div class="search-box" >
+                <h1> Online Food</h1>
+                <p> You enjoy the food</p>
+                <button class="btn"><a href = "/login">Login</a></button>
+                <button class="btn"><a href="/signup">SignUp</a></button>
+                
+        </form>
+    </section>
+    <section class="service" id="service">
+        <div class="title">
+            <h1><span>Food</span>Items</h1>
+        </div>
+        <div class="services-row">
+            <div class="services-col" style="background-image:url('/images/vegphoto.jpeg');" onclick="openModal('vegModal')">
+                <i class="fas fa-carrot"></i>
+                <h2>Veg Items</h2>
+            </div>
+    
+            <div class="services-col" style="background-image:url('/images/Chicken Biryani.jpg');" onclick="openModal('nonVegModal')">
+                <i class="fas fa-drumstick-bite"></i>
+                <h2>Non-Veg Items</h2>
+            </div>
+    
+            <div class="services-col" style="background-image:url('/images/chinnes/Noodles.jpg');" onclick="openModal('chineseModal')">
+                <i class="fas fa-bowl-food"></i>
+                <h2>Chinese Items</h2>
+            </div>
+            <div class="services-col" style="background-image:url('/images/cool/199a3f1b6bcc7133b40816643e10eb84.jpg');" onclick="openModal('coolModal')">
+                <i class="fas fa-glass-martini-alt"></i>
+                <h2>Cool Drinks</h2>
+            </div>
+            <div class="services-col" style="background-image:url('/images/ice creams/29a671d39f03fa618290cf6eac3b4b08.jpg');" onclick="openModal('icecreamModal')">
+                <i class="fas fa-ice-cream"></i>
+                <h2>icecream</h2>
+            </div>
+        </div>
+    
+        <!-- Modal for Veg Items -->
+        <!-- Veg Modal -->
+<div id="vegModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('vegModal')">&times;</span>
+        <h2>Veg Items</h2>
+        <div class="image-gallery">
+            <!-- Dal -->
+            <div class="food-item">
+                <div class="venue-box">
+                    <img src="/images/veg/Dal.jpg" alt="Dal">
+                    <div class="venue-info">
+                        <h2>Dal</h2>
+                        <p style="color: black;">RS.100</p>
+                    </div>
+                    <a href="/login"><button class="order-btn" data-item="Dal" data-price="100">Order</button></a>
+                </div>
+            </div>
+            
+            <!-- Kaju Curry -->
+            <div class="food-item">
+                <div class="venue-box">
+                    <img src="/images/veg/kaju Currry.jpg" alt="Kaju Curry">
+                    <div class="venue-info">
+                        <h2>Kaju Curry</h2>
+                        <p style="color: black;">RS.350</p>
+                    </div>
+                    <a href="/login"><button class="order-btn" data-item="Kaju Curry" data-price="350">Order</button></a>
+                </div>
+            </div>
+
+            <!-- Mixed Fry -->
+            <div class="food-item">
+                <div class="venue-box">
+                    <img src="/images/veg/Mixed fry.jpg" alt="Mixed Fry">
+                    <div class="venue-info">
+                        <h2>Mixed Fry</h2>
+                        <p style="color: black;">RS.300</p>
+                    </div>
+                    <a href="/login"><button class="order-btn" data-item="Mixed Fry" data-price="300">Order</button></a>
+                </div>
+            </div>
+
+            <!-- Potato -->
+            <div class="food-item">
+                <div class="venue-box">
+                    <img src="/images/veg/Potato.jpg" alt="Potato">
+                    <div class="venue-info">
+                        <h2>Potato</h2>
+                        <p style="color: black;">RS.100</p>
+                    </div>
+                    <a href="/login"><button class="order-btn" data-item="Potato" data-price="100">Order</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+    
+        <!-- Modal for Non-Veg Items -->
+        <div id="nonVegModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('nonVegModal')">&times;</span>
+                <h2>Non-Veg Items</h2>
+                <div class="image-gallery">
+                    <div class="food-item">
+                        <div class="venue-list">
+                            <div class="venue-box">
+                                <img src="/images/food/Chicken Biryani.jpg" alt="Chicken Biryani">
+                                <div class="venue-info">
+                                    <h2>Chicken Biryani</h2>
+                                    <p style="color: black;">RS.200</p>
+                                </div>
+                                <a href="/login"><button class="order-btn" onclick="orderItem('Chicken Biryani')">Order</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="food-item">
+                        <div class="venue-list">
+                            <div class="venue-box">
+                                <img src="/images/food/Fish Biryani.jpg" alt="Fish Biryani">
+                                <div class="venue-info">
+                                    <h2>Fish Biryani</h2>
+                                    <p style="color: black;">RS.350</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/login"><button class="order-btn" onclick="orderItem('Fish Biryani')">Order</button></a>
+                    </div>
+                    <div class="food-item">
+                        <div class="venue-list">
+                            <div class="venue-box">
+                                <img src="/images/food/z.jpg" alt="Non-Veg Dish">
+                                <div class="venue-info">
+                                    <h2>prawns</h2>
+                                    <p style="color: black;">RS.500</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/login"><button class="order-btn" onclick="orderItem('Non-Veg Dish')">Order</button></a>
+                    </div>
+                    <div class="food-item">
+                        <div class="venue-list">
+                            <div class="venue-box">
+                                <img src="/images/food/Mutton Biryani.jpg" alt="Mutton Biryani">
+                                <div class="venue-info">
+                                    <h2>Mutton Biryani</h2>
+                                    <p style="color: black;">RS.350</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/login"><button class="order-btn" onclick="orderItem('Mutton Biryani')">Order</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        </div>
+    
+        <!-- Modal for Chinese Items -->
+        <div id="chineseModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('chineseModal')">&times;</span>
+                <h2>Chinese Items</h2>
+                <div class="image-gallery">
+                    <div class="food-item">
+                        <img src="/images/chinnes/Manchurian.jpg" alt="Manchurian">
+                        <h3>Manchurian</h3>
+                        <p style="color: black;">RS.200</p>
+                        <a href="/login"><button class="order-btn" onclick="orderItem('Manchurian', 200)">Order</button></a>
+                    </div>
+                    <div class="food-item">
+                        <img src="/images/chinnes/Momos.jpg" alt="Momos">
+                        <h3>Momos</h3>
+                        <p style="color: black;">RS.150</p>
+                        <a href="/login"><button class="order-btn" onclick="orderItem('Momos', 150)">Order</button></a>
+                    </div>
+                    <div class="food-item">
+                        <img src="/images/chinnes/Noodles.jpg" alt="Noodles">
+                        <h3>Noodles</h3>
+                        <p style="color: black;">RS.180</p>
+                        <a href="/login"><button class="order-btn" onclick="orderItem('Noodles', 180)">Order</button></a>
+                    </div>
+                    <div class="food-item">
+                        <img src="/images/chinnes/Spicy Honey-Giner Chicken.jpg" alt="Spicy Honey-Ginger Chicken">
+                        <h3>Spicy Honey-Ginger Chicken</h3>
+                        <p style="color: black;">RS.250</p>
+                        <a href="/login"><button class="order-btn" onclick="orderItem('Spicy Honey-Ginger Chicken', 250)">Order</button></a>
+                    </div>
+                    <div class="food-item">
+                        <img src="/images/chinnes/Stir-fried noodles.jpg" alt="Stir-fried noodles">
+                        <h3>Stir-fried Noodles</h3>
+                        <p style="color: black;">RS.220</p>
+                        <a href="/login"><button class="order-btn" onclick="orderItem('Stir-fried Noodles', 220)">Order</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    <!-- Modal for cool drinks  -->
+    <div id="coolModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('coolModal')">&times;</span>
+            <h2>Cool Drinks</h2>
+            <div class="image-gallery">
+                <div class="drink-item">
+                    <img src="/images/cool/7aad065453901d944169db58ea42a9b9.jpg" alt="Coca-Cola">
+                    <h3>Coca-Cola</h3>
+                    <p style="color: black;">RS.50</p>
+                    <a href="/login"><button class="order-btn" onclick="orderItem('Coca-Cola', 50)">Order</button></a>
+                </div>
+                <div class="drink-item">
+                    <img src="/images/cool/199a3f1b6bcc7133b40816643e10eb84.jpg" alt="Pepsi">
+                    <h3>Pepsi</h3>
+                    <p style="color: black;">RS.45</p>
+                    <a href="/login"><button class="order-btn" onclick="orderItem('Pepsi', 45)">Order</button></a>
+                </div>
+                <div class="drink-item">
+                    <img src="/images/cool/da41e3fd8d842bf06ada18c402deaefa.jpg" alt="Sprite">
+                    <h3>Sprite</h3>
+                    <p style="color: black;">RS.55</p>
+                    <a href="/login"><button class="order-btn" onclick="orderItem('Sprite', 55)">Order</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!-- Modal for ice creams  -->
+<div id="icecreamModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('icecreamModal')">&times;</span>
+        <h2>Ice Creams</h2>
+        <div class="image-gallery">
+            <div class="icecream-item">
+                <img src="/images/ice creams/1a408e4db4bd375a7ad3addf119a0eac.jpg" alt="Vanilla Ice Cream" width="200" height="200">
+                <h3>Vanilla Ice Cream</h3>
+                <p style="color: black;">RS.80</p>
+                <a href="/login"><button class="order-btn" onclick="orderItem('Vanilla Ice Cream', 80)">Order</button></a>
+            </div>
+            <div class="icecream-item">
+                <img src="/images/ice creams/29a671d39f03fa618290cf6eac3b4b08.jpg" alt="Chocolate Ice Cream" width="200" height="200">
+                <h3>Chocolate Ice Cream</h3>
+                <p style="color: black;">RS.100</p>
+                <a href="/login"><button class="order-btn" onclick="orderItem('Chocolate Ice Cream', 100)">Order</button></a>
+            </div>
+            <div class="icecream-item">
+                <img src="/images/ice creams/35ebe7058b23dc56b254f9ef3d37785a.jpg" alt="Strawberry Ice Cream" width="200" height="200">
+                <h3>Strawberry Ice Cream</h3>
+                <p style="color: black;">RS.90</p>
+                <a href ="/login"><button class="order-btn" onclick="orderItem('Strawberry Ice Cream', 90)">Order</button></a>
+            </div>
+            <div class="icecream-item">
+                <img src="/images/ice creams/093eafea68c0c783eb56245db27f1fd5.jpg" alt="Butterscotch Ice Cream" width="200" height="200">
+                <h3>Butterscotch Ice Cream</h3>
+                <p style="color: black;">RS.95</p>
+                <a href="/login"><button class="order-btn" onclick="orderItem('Butterscotch Ice Cream', 95)">Order</button></a>
+            </div>
+            <div class="icecream-item">
+                <img src="/images/ice creams/794fd7ea4dc9b28b8b4723d001f9f84e.jpg" alt="Mango Ice Cream" width="200" height="200">
+                <h3>Mango Ice Cream</h3>
+                <p style="color: black;">RS.85</p>
+                <a href="/login"><button class="order-btn" onclick="orderItem('Mango Ice Cream', 85)">Order</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('paymentModal')">&times;</span>
+        <h2>Payment Details</h2>
+        <p id="selectedItem"></p>
+        <p id="totalAmount"></p>
+
+        <label>Select Payment Method:</label>
+        <select id="paymentMethod">
+            <option value="upi">UPI</option>
+            <option value="card">Credit/Debit Card</option>
+        </select>
+
+        <div id="upiSection" style="display: none;">
+            <label>UPI ID:</label>
+            <input type="text" id="upiId" placeholder="Enter UPI ID">
+        </div>
+
+        <div id="cardSection" style="display: none;">
+            <label>Card Number:</label>
+            <input type="text" id="cardNumber" placeholder="Enter 12-digit Card Number">
+        </div>
+
+        <button class="pay-btn" onclick="processPayment()">Pay Now</button>
+    </div>
+</div>
+
+<div id="successModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('successModal')">&times;</span>
+        <h2>🎉 Order Successful! 🎉</h2>
+        <p>Your order has been placed successfully.</p>
+    </div>
+</div>
+
+
+        <script>
+            function openModal(modalId) {
+                document.getElementById(modalId).style.display = "flex";
+            }
+    
+            function closeModal(modalId) {
+                document.getElementById(modalId).style.display = "none";
+            }
+    
+            // Close the modal when clicking outside
+            window.onclick = function(event) {
+                let modals = document.querySelectorAll(".modal");
+                modals.forEach((modal) => {
+                    if (event.target === modal) {
+                        modal.style.display = "none";
+                    }
+                });
+            };
+        </script>
+    
+            
+        </section>
+
+    
+
+    <!--------------------------------------------footer section--------------------------->
+    <footer id="contact">
+        <div class="container">
+            <div class="f-container">
+                <h2>Food Service </h2><br>
+                <p> </p>
+                <div>
+                    <button class="btn"><a href="#home">Order food</a></button>
+                </div>
+                <div class="social">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-pinterest"></i>
+                </div>
+                
+            </div>
+            <div class="f-container">
+                    <h2>About Us</h2>
+                    <p>Our journey began with a simple mission: to serve happiness on a plate. With a team of passionate chefs and food enthusiasts, we carefully select fresh ingredients, blend them with age-old recipes, and present them with a modern twist.</p>
+                    <h2>Our Love</h2>
+					<p>Our love is built on a foundation of trust, respect, and unwavering support for one another. Together, we've navigated life's ups and downs, always standing by each other's side.
+                    </p>
+            </div>
+                    
+            <div class = "f-container">
+           			<h2>Contact Us</h2><br>
+            		<h2><b>nrk123786@gmail.com</b></h2>
+            		<h2><b>8309607825</b></h2>
+            </div>
+        
+        </div>
+    </footer>
+        
+</body>
+
+
+</html>
