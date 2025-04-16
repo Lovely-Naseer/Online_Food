@@ -269,7 +269,9 @@ span {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    max-width: 800px;
+    max-height: 95vh; 
+    overflow-y: auto; 
+    padding: 1rem;
 }
 
 .modal-content img {
@@ -278,6 +280,10 @@ span {
     border-radius: 10px;
     margin-bottom: 10px;
 }
+.modal-content h1 {
+    font-size: 3rem;
+}
+
 
 .close-btn {
     position: absolute;

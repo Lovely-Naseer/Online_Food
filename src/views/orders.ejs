@@ -1,64 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Orders</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            text-align: center;
-        }
-        .order-container {
-            max-width: 600px;
-            margin: auto;
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        .order-item {
-            border-bottom: 1px solid #ddd;
-            padding: 10px;
-        }
-        .order-item:last-child {
-            border-bottom: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Your Orders</title>
+  <style>
+    table {
+      width: 80%;
+      margin: auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #333;
+    }
+    th {
+      background-color: #eee;
+    }
+  </style>
 </head>
 <body>
+  <h1 style="text-align:center;">Your Orders</h1>
+  <table id="ordersTable">
+    <thead>
+      <tr>
+        <th>Customer ID</th>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Payment Method</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <br><br>
+  <button><a href="/index">Home</a></button>
 
-    <h2>My Orders</h2>
-    <div class="order-container" id="ordersList"></div>
+  <script>
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+    const tbody = document.querySelector('#ordersTable tbody');
+    let customerId = 1;  // Start customer ID from 1
 
-    <script>
-        // Fetch orders from localStorage
-        function loadOrders() {
-            let orders = JSON.parse(localStorage.getItem("orders")) || [];
-            let ordersList = document.getElementById("ordersList");
-
-            if (orders.length === 0) {
-                ordersList.innerHTML = "<p>No orders found.</p>";
-                return;
-            }
-
-            orders.forEach((order, index) => {
-                let orderHTML = `
-                    <div class="order-item">
-                        <h3>${order.item}</h3>
-                        <p><strong>Price:</strong> RS.${order.price}</p>
-                        <p><strong>Quantity:</strong> ${order.quantity}</p>
-                        <p><strong>Total:</strong> RS.${order.total}</p>
-                        <p><strong>Payment Method:</strong> ${order.payment}</p>
-                    </div>
-                `;
-                ordersList.innerHTML += orderHTML;
-            });
-        }
-
-        window.onload = loadOrders;
-    </script>
-    <button onclick="window.location.href = '/index';">Go back to Home</button>
-
+    if (orders.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="6">No orders yet.</td></tr>';
+    } else {
+      orders.forEach(order => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${customerId}</td>
+          <td>${order.item}</td>
+          <td>Rs. ${order.price}</td>
+          <td>${order.quantity}</td>
+          <td>Rs. ${order.total}</td>
+          <td>${order.paymentMethod.toUpperCase()}</td>
+        `;
+        tbody.appendChild(row);
+        customerId++;  // Increment customer ID for each order
+      });
+    }
+  </script>
 </body>
 </html>

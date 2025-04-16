@@ -7,6 +7,9 @@ const session = require('express-session');
 const User = require('./models/User');
 const indexRoutes = require('./routes/index');
 
+
+
+
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
