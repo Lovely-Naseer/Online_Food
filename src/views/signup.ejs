@@ -39,10 +39,16 @@ function lpage(){
 </script>
 <style>
     .form{
-        height: 580px;
+        height: 90%;
     }
     .error{
-        margin-top: 10px;
+        margin-top: 5px;
+        transition: opacity 0.5s ease-out;
+    }
+
+    .hide {
+        opacity: 0;
+        visibility: hidden;
     }
 </style>
 </head>
@@ -50,14 +56,19 @@ function lpage(){
 <body style="background:url('/images/login.jpg');background-position: center; background-size: cover; background-repeat: no-repeat;
     height: 100vh;">
     <div class="form">
-    <form action="/signup" method="post">
+    <form action="/signup" method="post" id="phoneForm">
         <% if (errorMessage) { %>
-            <div class="error"><%= errorMessage %></div>
+            <div class="error" id="error"><%= errorMessage %></div>
         <% } %><br>
 
         <h1>SIGN-IN FORM</h1>
         <p>UserName :</p>
         <input type="text" name="UserName" placeholder="Name Here" id="UserName">
+        <p>Mobile_No :</p>
+        <span>+91</span>
+        <input type="tel"name="Mobile_No" placeholder="Enter Phone Number" id="Mobile_No" pattern="[0-9]{10}" required>
+        <p>Gmail :</p>
+        <input type="email" id="gmail" name="Gmail" placeholder="Enter Email" required />
         <p>Password :</p>
         <input type="password" name="Password" placeholder="Password Here" id="Password">
         <p>Confirm_Password :</p>
@@ -73,6 +84,30 @@ function lpage(){
         <p id="length"></p>
     </div>
     
-   
+    <script>
+        // Automatically hide the error message after 5 seconds
+        setTimeout(() => {
+          const errorMsg = document.getElementById('error');
+          if (errorMsg) {
+            errorMsg.classList.add('hide');
+          }
+        }, 5000);
+      </script>
+   <script>
+  const form = document.getElementById('phoneForm');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // ⛔ prevent auto submit
+
+    let mobileInput = document.getElementById('Mobile_No');
+    if (!mobileInput.value.startsWith('+91')) {
+      mobileInput.value = '+91' + mobileInput.value;
+    }
+
+    form.submit(); // ✅ submit once
+  });
+</script>
+
+  
+      
 </body>
 </html>

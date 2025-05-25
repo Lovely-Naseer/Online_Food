@@ -37,13 +37,13 @@ body {
 .form p {
     margin-bottom: 8px;
     font-size: 1rem;
-    color: #ccc; /* Subtle color for text */
+    color: #ccc; 
 }
 
 .form input {
     width: 100%;
     height: 35px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     background: transparent;
     border: none;
     border-bottom: 1px solid greenyellow;
@@ -51,7 +51,7 @@ body {
     outline: none;
     font-size: 1rem;
     letter-spacing: 1px;
-    padding: 5px 0;
+    padding: 3px 0;
 }
 
 .form input[type="submit"] {

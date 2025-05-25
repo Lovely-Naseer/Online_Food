@@ -137,20 +137,38 @@ section .login{
 }
 
 span {
-    color: var(--clr5);
-    font-size: 2.5rem;
+    color: white;
+    font-size: 10.5rem;
 }
 
 .head .navbar {
-    font-size: 1.8rem;
+    font-size: 2.0em;
     justify-content: space-between;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+
 }
 
 .head .navbar a {
-    padding-left: 1.5rem;
+    padding-left: 2.0rem;
     color: var(--clr3);
 }
+.head .navbar a:hover{
+    text-decoration: underline;
+    text-decoration-color: white;
+    text-decoration-thickness: 3px;
+}
+.head .navbar input[type="search"] {
+    padding: 5px 12px;
+    font-size: 1.5rem;
+    border-radius: 6px;
+    margin-left: 30rem;
+    width: 300px;
+
+}
+
+
 
 #menu-bar {
     display: none;
@@ -175,12 +193,13 @@ span {
 
 .search-box {
     margin: 20rem 0 0 0;
-    color: var(--clr3);
+    color: greenyellow;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
     text-align: center;
 }
 
 .search-box h1 {
-    font-size: 5.5rem;
+    font-size: 10.5rem;
     text-transform: capitalize;
     font-weight: 600;
     letter-spacing: .2rem;
@@ -189,6 +208,8 @@ span {
 .search-box p {
     font-size: 1.8rem;
     margin: .5rem 0;
+    font-style: italic;
+    color: cyan
 }
 
 .search-field {
@@ -208,6 +229,58 @@ span {
     }
 }
 
+/* Style for search results container */
+#resultItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Style for each card */
+  .result-card {
+    width: 200px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .result-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .result-card h3 {
+    font-size: 1rem;
+    margin: 10px 0 5px;
+  }
+  
+  .result-card p {
+    font-size: 0.9rem;
+    color: #333;
+    margin: 0 0 10px;
+  }
+  
+  .result-card button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .result-card button:hover {
+    background-color: #e65c00;
+  }
+  
 
 
 /*-------------------services--------------*/
@@ -282,24 +355,27 @@ span {
 }
 .modal-content h1 {
     font-size: 3rem;
+    background-color: #ff6600;
 }
 
 
 .close-btn {
     position: absolute;
-    top: 10px;
+    top: 30px;
     right: 15px;
-    font-size: 24px;
+    font-size: 54px;
     cursor: pointer;
     color: red;
 }
 
 /* Image Grid */
 .image-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 5px;
 }
+
 
 .image-gallery img {
     width: 100%;
@@ -357,8 +433,8 @@ select, input {
 .food-item {
     text-align: center;
     margin: 10px;
+    width: 200px;
 }
-
 .food-item img {
     width: 150px;
     height: 150px;
@@ -455,14 +531,88 @@ select, input {
     }
 }
 
-
+/*-----------Payment form---------------*/
+  #paymentModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Payment Modal Content */
+  #paymentModal .modal-content {
+    background-color: black;
+    color: greenyellow;
+    margin: 3% auto;
+    padding: 10px 15px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Close Button */
+  #paymentModal .close-btn {
+    color: #888;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  #paymentModal .close-btn:hover {
+    color: #f00;
+  }
+  
+  /* Form Elements */
+  #paymentModal form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  
+  #paymentModal form input[type="text"],
+  #paymentModal form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  #paymentModal form input[type="radio"] {
+    margin-right: 8px;
+  }
+  
+  #paymentModal button[type="submit"] {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+  
+  #paymentModal button[type="submit"]:hover {
+    background-color: #45a049;
+  }
 
 
 
 /*---------------------------footer section-------------*/
 
 footer {
-    padding: 2rem 5%;
+    padding: 1rem 5%;
 }
 
 #contact {
@@ -470,7 +620,7 @@ footer {
 }
 
 .container {
-    padding: 3rem;
+    padding: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 2rem;
@@ -516,15 +666,6 @@ footer {
 	font-family:bold;
 }
 
-
-.f-container .btn {
-    background: var(--clr1);
-    color: #fff;
-    cursor: pointer;
-    margin-top: 2rem;
-    border-radius: .2rem;
-}
-
 .f-container .social i {
     margin-top: 1rem;
     font-size: 2rem;
@@ -560,7 +701,6 @@ footer {
     font-size: 1.2rem;
     color: #aaa;
 }
-
 
 /*----------------------media Query-------------------*/
 
@@ -644,5 +784,40 @@ footer {
     }
     .head {
         padding: 3rem;
+    }
+}
+/* Default (desktop) */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Tablet (≤ 991px) — 2 items per row */
+@media (max-width: 991px) {
+    .image-gallery .food-item,
+    .image-gallery .drink-item,
+    .image-gallery .icecream-item {
+        flex: 1 1 25%;
+        max-width: 25%;
+    }
+}
+
+/* Mobile (≤ 576px) — 1 item per row */
+@media (max-width: 576px) {
+    .image-gallery .food-item,
+    .image-gallery .drink-item,
+    .image-gallery .icecream-item {
+        flex: 1 1 30%;
+        max-width: 30%;
+    }
+}
+@media (max-width: 450px) {
+    .image-gallery .food-item,
+    .image-gallery .drink-item,
+    .image-gallery .icecream-item {
+        flex: 1 1 45%;
+        max-width: 45%;
     }
 }
