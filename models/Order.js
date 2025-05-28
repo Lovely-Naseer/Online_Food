@@ -7,7 +7,7 @@ const orderSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   quantity: { type: Number, required: true },
   totalAmount: { type: Number, required: true },
-  paymentType: { type: String, enum: ['card', 'upi'], required: true },
+  paymentType: { type: String, enum: ['card', 'upi', 'cash'], required: true },
   delivery_Address: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
 });

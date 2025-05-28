@@ -19,7 +19,7 @@
 }
 
 html {
-    font-size: 56%;
+    font-size: 66%;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
@@ -112,6 +112,7 @@ section .login{
 
 /*----------------------header section---------------*/
 
+/* Head Section */
 .head {
     position: fixed;
     top: 0;
@@ -123,49 +124,89 @@ section .login{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .fa-heart {
     color: red;
 }
 
-.head .logo {
-    font-size: 2.5rem;
-    color: var(--clr3);
-    font-weight: 600;
-    letter-spacing: .1rem;
-}
 
-span {
-    color: white;
-    font-size: 10.5rem;
-}
 
 .head .navbar {
-    font-size: 2.0em;
-    justify-content: space-between;
+    font-size: 1.8em;
     font-weight: 500;
     display: flex;
     align-items: center;
-
+    gap: 1rem;
 }
 
 .head .navbar a {
-    padding-left: 2.0rem;
     color: var(--clr3);
+    margin-right: 15px;
 }
-.head .navbar a:hover{
+
+.head .navbar a:hover {
     text-decoration: underline;
     text-decoration-color: white;
     text-decoration-thickness: 3px;
 }
+
 .head .navbar input[type="search"] {
     padding: 5px 12px;
     font-size: 1.5rem;
     border-radius: 6px;
-    margin-left: 30rem;
     width: 300px;
+    margin-left: 60rem;
+}
 
+/* Hamburger menu button */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-icon div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .head {
+        padding: 1.5rem 5%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .head .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        display: none;
+        gap: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .head .navbar.show {
+        display: flex;
+    }
+
+    .head .navbar input[type="search"] {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .menu-icon {
+        display: flex;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+    }
 }
 
 
@@ -174,6 +215,7 @@ span {
     display: none;
     color: var(--clr3);
 }
+
 
 
 

@@ -12,16 +12,30 @@
 <body>
     <header class="head">
         <div id="menu-bar"><i class="fas fa-bars"></i></div> 
-      
-        <nav class="navbar" id="navbar">
-          <a href="#" class="active">Home</a>
-          <a href="#service">Food_Items</a>
-          <a href="/my-orders">My Orders</a>
-          <a href="#contact">Contact</a>
-          <a href="/Logout">Logout</a>
-          <a href="#search"><input type="search" id="searchBox" placeholder="search here..."></a>
-        </nav>
-      </header>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+  <div class="navbar" id="navbar">
+    <a href="#" class="active">Home</a>
+        <a href="#service">Food_Items</a>
+        <a href="/my-orders">My_Orders</a>
+        <a href="#contact">Contact</a>
+        <a href="/logout">Logout</a>
+    <a href="#search"><input type="search" id="searchBox" placeholder="search here..."></a>
+  </div>
+</div>
+
+    </header>
+    <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navbar");
+      nav.classList.toggle("show");
+    }
+    </script>
 <script>
     document.getElementById('menu-bar').addEventListener('click', function () {
         document.getElementById('navbar').classList.toggle('active');
@@ -772,48 +786,49 @@
 </div>
 
 <!-- Payment Modal -->
-<div id="paymentModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeModal('paymentModal')">&times;</span>
-      <h2>Payment</h2>
-  
-      <form id="paymentForm" onsubmit="return validatePayment(event)">
-        <label>Item Name:</label>
-        <input type="text" id="itemName" name="itemName" readonly><br><br>
-  
-        <label>Price:</label>
-        <input type="number" id="itemPrice" name="itemPrice" readonly><br><br>
-  
-        <label>Quantity:</label>
-        <input type="number" id="quantity" name="quantity" value="1" min="1" onchange="calculateTotal()"><br><br>
-  
-        <label>Total:</label>
-        <input type="number" id="totalAmount" name="totalAmount" readonly><br><br>
+<<div id="paymentModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('paymentModal')">&times;</span>
+    <h2>Payment</h2>
 
-        <label>Delivery_Address</label>
-        <input type="text" id="deliveryAddress" placeholder="Enter delivery address" required>
+    <form id="paymentForm" onsubmit="return validatePayment(event)">
+      <label>Item Name:</label>
+      <input type="text" id="itemName" name="itemName" readonly><br><br>
 
-        <label>Payment Method:</label><br>
-        <input type="radio" name="paymentMethod" value="card" onchange="togglePaymentFields()"> Card
-        <input type="radio" name="paymentMethod" value="upi" onchange="togglePaymentFields()"> UPI<br><br>
-  
-        <div id="cardDetails" style="display:none;">
-          <label>Card Number:</label>
-          <input type="text" id="cardNumber" placeholder="Enter 16-digit card number"><br><br>
-        </div>
-  
-        <div id="upiDetails" style="display:none;">
-          <label>UPI ID:</label>
-          <input type="text" id="upiId" placeholder="e.g. name@upi"><br><br>
-        </div>
-  
-        <button type="submit">Pay Now</button>
-      </form>
-    </div>
+      <label>Price:</label>
+      <input type="number" id="itemPrice" name="itemPrice" readonly><br><br>
+
+      <label>Quantity:</label>
+      <input type="number" id="quantity" name="quantity" value="1" min="1" onchange="calculateTotal()"><br><br>
+
+      <label>Total:</label>
+      <input type="number" id="totalAmount" name="totalAmount" readonly><br><br>
+
+      <label>Delivery Address:</label>
+      <input type="text" id="deliveryAddress" placeholder="Enter delivery address" required><br><br>
+
+      <label>Payment Method:</label><br>
+      <input type="radio" name="paymentMethod" value="card" onchange="togglePaymentFields()"> Card
+      <input type="radio" name="paymentMethod" value="upi" onchange="togglePaymentFields()"> UPI
+      <input type="radio" name="paymentMethod" value="cash" onchange="togglePaymentFields()"> Cash on Delivery<br><br>
+
+
+      <div id="cardDetails" style="display:none;">
+        <label>Card Number:</label>
+        <input type="text" id="cardNumber" placeholder="Enter 16-digit card number"><br><br>
+      </div>
+
+      <div id="upiDetails" style="display:none;">
+        <label>UPI ID:</label>
+        <input type="text" id="upiId" placeholder="e.g. name@upi"><br><br>
+      </div>
+
+      <button type="submit">Pay Now</button>
+    </form>
   </div>
+</div>
 
 <script>
-
 function openPaymentModal(itemName, price) {
   document.getElementById('itemName').value = itemName;
   document.getElementById('itemPrice').value = price;
@@ -822,14 +837,12 @@ function openPaymentModal(itemName, price) {
   document.getElementById('paymentModal').style.display = 'block';
 }
 
-// Calculates total price
 function calculateTotal() {
   const price = parseFloat(document.getElementById('itemPrice').value);
   const quantity = parseInt(document.getElementById('quantity').value);
   document.getElementById('totalAmount').value = price * quantity;
 }
 
-// Show relevant input field based on selected method
 function togglePaymentFields() {
   const method = document.querySelector('input[name="paymentMethod"]:checked').value;
   document.getElementById('cardDetails').style.display = method === 'card' ? 'block' : 'none';
@@ -837,7 +850,7 @@ function togglePaymentFields() {
 }
 
 async function validatePayment(event) {
-  event.preventDefault(); // prevent default form submission
+  event.preventDefault();
 
   const methodEl = document.querySelector('input[name="paymentMethod"]:checked');
   if (!methodEl) {
@@ -846,7 +859,7 @@ async function validatePayment(event) {
   }
 
   const method = methodEl.value;
-  let paymentValid = false;
+  let paymentValid = true;
 
   if (method === 'card') {
     const cardNumber = document.getElementById('cardNumber').value.trim();
@@ -863,6 +876,9 @@ async function validatePayment(event) {
       return false;
     }
   }
+  else if (method === 'cash') {
+    paymentValid = true; // ✅ Cash needs no extra validation
+  }
 
   const order = {
     itemName: document.getElementById('itemName').value,
@@ -877,35 +893,36 @@ async function validatePayment(event) {
     alert('Please enter your delivery address.');
     return false;
   }
+  console.log("Order being sent to server:", order);
+
 
   try {
-  const response = await fetch('/place-order', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'  // ✅ Tells server to expect JSON
-    },
-    body: JSON.stringify(order)           // ✅ Convert JS object to JSON string
-  });
+    const response = await fetch('/place-order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'  
+      },
+      body: JSON.stringify(order)         
+    });
 
-  const result = await response.json();   // ✅ Parse JSON response
+    const result = await response.json();   
 
-  if (response.ok) {
-    alert(result.message);
-    closeModal('paymentModal');
-    window.location.href = '/my-orders'; // or use '/my-orders' if that's your correct route
-  } else {
-    alert(result.message || 'Order failed');
+    if (response.ok) {
+      alert(result.message);
+      closeModal('paymentModal');
+      window.location.href = '/my-orders'; 
+    } else {
+      alert(result.message || 'Order failed');
+    }
+  } catch (err) {
+    console.error(err);
+    alert('Server error while placing order');
   }
-} catch (err) {
-  console.error(err);
-  alert('Server error while placing order');
+
+  return false;
 }
-
-return false;
-
-}
-
 </script>
+
 
 <script>
     function openModal(modalId) {
