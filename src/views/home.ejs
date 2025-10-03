@@ -12,26 +12,33 @@
 </head>
 
 <body>
+  <header class="head">
+    <!-- Single hamburger icon -->
+    <div id="menu-bar">
+      <i class="fas fa-bars"></i>
+    </div>
 
-<header class="head"> 
- 
-        <nav class="navbar ">
-        <div>
-        <a href="#" class="active">Home</a>
-        <a href="#service">Food_Items</a>
-        <a href="#contact">Contact</a>
-        <a href="/login">Login</a>
-        <a href ="/signup">SignUp</a>
-        <a href="#search"><input type="search" id="searchBox" placeholder="search here..."></a>
+    <!-- Navigation menu -->
+    <nav class="navbar" id="navbar">
+      <a href="#" class="active">Home</a>
+      <a href="#service">Food_Items</a>
+      <a href="#contact">Contact</a>
+      <a href="/login">Login</a>
+      <a href="/signup">Signup</a>
 
+      <a href="#search">
+        <input type="search" id="searchBox" placeholder="search here...">
+      </a>
+    </nav>
+  </header>
 
-        </div>
-        </nav>
-        <div id="menu-bar"><i class="fas fa-bars"></i></div> 
-    </header>
-
-
-    <!---------------------------Home--------------------->
+  <script>
+    // Single toggle handler
+    document.getElementById('menu-bar').addEventListener('click', function () {
+      document.getElementById('navbar').classList.toggle('show');
+    });
+  </script>
+    <!--Home-->
     <section class="home" id="home" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url('/images/bikel.webp'); background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -47,10 +54,26 @@
                 
         </form>
     </section>
-    <div name="search" id="searchResults" style="padding: 20px; display: none;">
-    <h2>Search Results:</h2>
-    <div id="resultItems" style="display: flex; flex-wrap: wrap; gap: 20px;"></div>
-  </div>
+    <div id="searchResults" style="padding: 20px; display: none;">
+        <h2>Search Results:</h2>
+        <div id="resultItems" style="display: flex; flex-wrap: wrap; gap: 20px;"></div>
+    </div>
+
+<script>
+document.getElementById("searchBox").addEventListener("input", function () {
+    const searchValue = this.value.trim();
+
+    if (searchValue.length > 0) {
+        document.getElementById("searchResults").style.display = "block";
+        document.getElementById("searchResults").scrollIntoView({ behavior: "smooth" });
+    }
+    if (searchValue.length == 0) {
+        document.getElementById("home").style.display = "block";
+        document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+    }
+});
+</script>
+
     <section class="service" id="service">
         <div class="title">
             <h1><span>Food</span>Items</h1>
@@ -611,73 +634,73 @@
             <span class="close-btn" onclick="closeModal('coolModal')">&times;</span>
             <h1>Cool Drinks</h1>
             <div class="image-gallery">
-                <div class="drink-item">
+                <div class="food-item">
                     <img src="/images/cool/Badam Milk.jpeg" alt="Badam Milk" width="150" height="150">
                     <h2 class="searchable-item" data-img="/images/cool/Badam Milk.jpeg" data-price="50">Badam Milk</h2>
                     <p style="color: black;">RS.50</p>
                     <a href="/login"><button class="order-btn">Order</button> </a>           
                 </div>
-                <div class="drink-item">
+                <div class="food-item">
                     <img src="/images/cool/Banana Shake.jpeg" alt="Banana Shake" width="150" height="150">
                     <h2 class="searchable-item" data-img="/images/cool/Banana Shake.jpeg" data-price="60">Banana Shake</h2>
                     <p style="color: black;">RS.60</p>
                     <a href="/login"><button class="order-btn">Order</button></a>
                 </div>
-                <div class="drink-item">
+                <div class="food-item">
                     <img src="/images/cool/cola.jpeg" alt="Coca-Cola" width="150" height="150">
                     <h2 class="searchable-item" data-img="/images/cool/cola.jpeg" data-price="30">Coca-Cola</h2>
                     <p style="color: black;">RS.30</p>
                     <a href="/login"><button class="order-btn">Order</button>  </a>          
                 </div>
-                <div class="drink-item">
+                <div class="food-item">
                     <img src="/images/cool/Falooda Drink.jpeg" alt="Falooda Drink" width="150" height="150">
                     <h2 class="searchable-item" data-img="/images/cool/Falooda Drink.jpeg" data-price="100">Falooda Drink</h2>
                     <p style="color: black;">RS.100</p>
                     <a href="/login"><button class="order-btn">Order</button></a>                
                 </div>
-                <div class="drink-item">
+                <div class="food-item">
                     <img src="/images/cool/Lime Soda.jpeg" alt="Lime Soda" width="150" height="150">
                     <h2 class="searchable-item" data-img="/images/cool/Lime Soda.jpeg" data-price="25">Lime Soda</h2>
                     <p style="color: black;">RS.25</p>
                     <a href="/login"><button class="order-btn">Order</button>  </a>          
                 </div>
-                <div class="drink-item">
+                <div class="food-item">
                     <img src="/images/cool/Mango Shake.jpeg" alt="Mango Shake" width="150" height="150">
                     <h2 class="searchable-item" data-img="/images/cool/Mango Shake.jpeg" data-price="80">Mango Shake</h2>
                     <p style="color: black;">RS.80</p>
                     <a href="/login"><button class="order-btn">Order</button></a>              
                 </div>
-                <div class="drink-item">
+                <div class="food-item">
                     <img src="/images/cool/pepsi.jpeg" alt="pepsi" width="150" height="150">
                     <h2 class="searchable-item" data-img="/images/cool/pepsi.jpeg" data-price="40">pepsi</h2>
                     <p style="color: black;">RS.40</p>
                     <a href="/login"><button class="order-btn">Order</button> </a>  
                 </div>
-                <div class="drink-item">
+                <div class="food-item">
                     <img src="/images/cool/Rose Milk.jpeg" alt="Rose Milk" width="150" height="150">
                     <h2 class="searchable-item" data-img="/images/cool/Rose Milk.jpeg" data-price="50">Rose Milk</h2>
                     <p style="color: black;">RS.50</p>
                     <a href="/login"><button class="order-btn">Order</button></a>          
                 </div>
-                <div class="drink-item">
+                <div class="food-item">
                     <img src="/images/cool/sprite.jpeg" alt="sprite" width="150" height="150">
                     <h2 class="searchable-item" data-img="/images/cool/sprite.jpeg" data-price="45">sprite</h2>
                     <p style="color: black;">RS.45</p>
                     <a href="/login"><button class="order-btn">Order</button> </a>    
                 </div>
-                <div class="drink-item">
+                <div class="food-item">
                     <img src="/images/cool/Strawberry Shake.jpeg" alt="Strawberry Shake" width="150" height="150">
                     <h2 class="searchable-item" data-img="/images/cool/Strawberry Shake.jpeg" data-price="80">Strawberry Shake</h2>
                     <p style="color: black;">RS.80</p>
                     <a href="/login"><button class="order-btn">Order</button></a>
                 </div>
-                <div class="drink-item">
+                <div class="food-item">
                     <img src="/images/cool/Sweet Lassi.jpeg" alt="Sweet Lassi" width="150" height="150">
                     <h2 class="searchable-item" data-img="/images/cool/Sweet Lassi.jpeg" data-price="50">Sweet Lassi</h2>
                     <p style="color: black;">RS.50</p>
                     <a href="/login"><button class="order-btn">Order</button></a>              
                 </div>
-                <div class="drink-item">
+                <div class="food-item">
                     <img src="/images/cool/thumsup.jpeg" alt="thumsup" width="150" height="150">
                     <h2 class="searchable-item" data-img="/images/cool/thumsup.jpeg" data-price="45">thumsup</h2>
                     <p style="color: black;">RS.45</p>
@@ -695,94 +718,94 @@
         <span class="close-btn" onclick="closeModal('icecreamModal')">&times;</span>
         <h1>Ice Creams</h1>
         <div class="image-gallery">
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Vanilla.jpeg" alt="Vanilla" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Vanilla.jpeg" data-price="40">Vanilla</h2>
                 <p style="color: black;">RS.40</p>
                 <a href="/login"><button class="order-btn">Order</button>  </a>  
             </div>
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Strawberry.jpeg" alt="Strawberry" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Strawberry.jpeg" data-price="50">Strawberry</h2>
                 <p style="color: black;">RS.50</p>
                 <a href="/login"><button class="order-btn">Order</button> </a>       
             </div>
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Black Currant.jpeg" alt="Black Currant" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Black Currant.jpeg" data-price="60">Black Currant</h2>
                 <p style="color: black;">RS.60</p>
                 <a href="/login"><button class="order-btn">Order</button> </a>          
             </div>
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Chocolate.jpeg" alt="Chocolate" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Chocolate.jpeg" data-price="50">Chocolate</h2>
                 <p style="color: black;">RS.50</p>
                 <a href="/login"><button class="order-btn">Order</button>  </a>      
             </div>
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Butterscotch.jpeg" alt="Butterscotch" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Butterscotch.jpeg" data-price="60">Butterscotch</h2>
                 <p style="color: black;">RS.60</p>
                 <a href="/login"><button class="order-btn">Order</button></a>           
             </div>
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Mango.jpeg" alt="Mango" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Mango.jpeg" data-price="40">Mango</h2>
                 <p style="color: black;">RS.40</p>
                 <a href="/login"><button class="order-btn">Order</button> </a>
             </div>
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Caramel Swirl.jpeg" alt="Caramel Swirl" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Caramel Swirl.jpeg" data-price="60">Caramel Swirl</h2>
                 <p style="color: black;">RS.60</p>
                 <a href="/login"><button class="order-btn">Order</button></a>
             </div>
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Choco Chips.jpeg" alt="Choco Chips" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Choco Chips.jpeg" data-price="60">Choco Chips</h2>
                 <p style="color: black;">RS.60</p>
                 <a href="/login"><button class="order-btn">Order</button></a>          
             </div>
             
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Ferrero Rocher.jpeg" alt="Ferrero Rocher" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Ferrero Rocher.jpeg" data-price="120">Ferrero Rocher</h2>
                 <p style="color: black;">RS.120</p>
                 <a href="/login"><button class="order-btn">Order</button></a>
             </div>
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Kesar Pista.jpeg" alt="Kesar Pista" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Kesar Pista.jpeg" data-price="80">Kesar Pista</h2>
                 <p style="color: black;">RS.80</p>
                 <a href="/login"><button class="order-btn">Order</button></a>          
             </div>
            
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Mint Choco.jpeg" alt="Mint Choco" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Mint Choco.jpeg" data-price="60">Mint Choco</h2>
                 <p style="color: black;">RS.60</p>
                 <a href="/login"><button class="order-btn">Order</button> </a>        
             </div>
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Nutty Belgian.jpeg" alt="Nutty Belgian" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Nutty Belgian.jpeg" data-price="250">Nutty Belgian(500ml)</h2>
                 <p style="color: black;">RS.250</p>
                 <a href="/login"><button class="order-btn">Order</button></a>            
             </div>
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Oreo Crunch.jpeg" alt="Oreo Crunch" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Oreo Crunch.jpeg" data-price="100">Oreo Crunch</h2>
                 <p style="color: black;">RS.100</p>
                 <a href="/login"><button class="order-btn">Order</button</a>         
             </div>
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Sitaphal (Custard Apple).jpeg" alt="Sitaphal (Custard Apple)" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Sitaphal (Custard Apple).jpeg" data-price="80">Sitaphal (Custard Apple)</h2>
                 <p style="color: black;">RS.80</p>
                 <a href="/login"><button class="order-btn">Order</button></a>
             </div>
             
-            <div class="icecream-item">
+            <div class="food-item">
                 <img src="/images/ice creams/Tender Coconut.jpeg" alt="Tender Coconut" width="150" height="150">
                 <h2 class="searchable-item" data-img="/images/ice creams/Tender Coconut.jpeg" data-price="70">Tender Coconut</h2>
                 <p style="color: black;">RS.70</p>
@@ -794,13 +817,50 @@
     </div>
 </div>
 <script>
-    function openModal(modalId) {
-        document.getElementById(modalId).style.display = "flex";
-    }
-    
+document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add("fade-in-left");
+                }, index * 100); // staggered delay
+                obs.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    const foodItems = document.querySelectorAll(".food-item, .food-item, .food-item");
+    foodItems.forEach(item => observer.observe(item));
+});
+</script>
+<script>
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "flex";
+
+    // Animate food/drink/icecream items
+    const items = modal.querySelectorAll(".food-item, .food-item, .food-item");
+    items.forEach((item, index) => {
+        item.classList.remove("fade-in-left"); // reset if previously applied
+        void item.offsetWidth; // trigger reflow
+        setTimeout(() => {
+            item.classList.add("fade-in-left");
+        }, index * 100); // staggered animation
+    });
+}
+   
     function closeModal(modalId) {
-        document.getElementById(modalId).style.display = "none";
-    }
+    const modal = document.getElementById(modalId);
+    modal.style.display = "none";
+
+    const items = modal.querySelectorAll(".food-item, .food-item, .food-item");
+    items.forEach(item => {
+        item.classList.remove("fade-in-left");
+    });
+}
+
     
     // Close the modal when clicking outside
     window.onclick = function(event) {
